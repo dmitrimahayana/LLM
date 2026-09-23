@@ -1,0 +1,10 @@
+models*/
+lora_adapter/
+lora_output/
+venv/
+.env
+.python-version
+.vscode/
+.DS_Store
+__pycache__/
+*.pyc

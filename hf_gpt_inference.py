@@ -67,12 +67,14 @@ def get_sales_response(customer_message, conversation_history=""):
 # Test examples
 print("=== Single-turn example ===")
 question = "Hi, Im interested in purchasing a new smartphone. Can you help me choose the best one?"
+print(f"Human: {question}")
 response = get_sales_response(question)
 print(f"Salesman: {response}\n")
 
 print("=== Multi-turn example ===")
-history = "Customer: I need a laptop for work. Salesman: Great! What kind of work will you be doing?"
+history = "Human: I need a laptop for work. Salesman: Great! What kind of work will you be doing?"
 question = "Mostly data analysis and some light video editing."
+print(f"{history}\nHuman: {question}")
 response = get_sales_response(question, conversation_history=history)
 print(f"Salesman: {response}\n")
 

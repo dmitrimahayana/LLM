@@ -42,7 +42,7 @@ def get_sales_response(customer_message, conversation_history=""):
                 Answer as a Salesman to the previous Statement to convince the person to buy the product or service.
                 Salesman:"""
 
-    inputs = tokenizer(prompt, return_tensors="pt")
+    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
 
     outputs = model.generate(
         **inputs,
@@ -66,12 +66,14 @@ def get_sales_response(customer_message, conversation_history=""):
 
 # Test examples
 print("=== Single-turn example ===")
-response = get_sales_response("Hi, Im interested in purchasing a new smartphone. Can you help me choose the best one?")
+question = "Hi, Im interested in purchasing a new smartphone. Can you help me choose the best one?"
+response = get_sales_response(question)
 print(f"Salesman: {response}\n")
 
 print("=== Multi-turn example ===")
 history = "Customer: I need a laptop for work. Salesman: Great! What kind of work will you be doing?"
-response = get_sales_response("Mostly data analysis and some light video editing.", conversation_history=history)
+question = "Mostly data analysis and some light video editing."
+response = get_sales_response(question, conversation_history=history)
 print(f"Salesman: {response}\n")
 
 print("=== Interactive mode ===")

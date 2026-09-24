@@ -1,7 +1,7 @@
 # transformers: Hugging Face library for loading/training LLMs
 # datasets: Library for loading datasets from Hugging Face Hub
 # peft: Parameter-Efficient Fine-Tuning library (LoRA, etc.)
-from transformers import pipeline, set_seed, AutoTokenizer, AutoModelForCausalLM, Trainer, TrainingArguments
+from transformers import AutoTokenizer, AutoModelForCausalLM, Trainer, TrainingArguments
 from datasets import load_dataset
 from peft import LoraConfig, TaskType, get_peft_model
 
